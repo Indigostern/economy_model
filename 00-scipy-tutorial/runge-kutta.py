@@ -1,7 +1,5 @@
 from scipy.integrate import solve_ivp
 import numpy as np
-import matplotlib  
-matplotlib.use('Qt5Agg')
 import pylab          # plotting of results
 
 def f(t, y):
@@ -19,3 +17,4 @@ sol = solve_ivp(fun=f, t_span=[t0, tf], y0=y0, t_eval=ts)
 
 pylab.plot(sol.t, sol.y[0], '.')
 pylab.xlabel('t'); pylab.ylabel('y(t)')
+pylab.show()

@@ -14,7 +14,7 @@ ts = np.linspace(t0, tf, 100)  # 100 points between t0 and tf
 # sol = solve_ivp(fun=f, t_span=[t0, tf], y0=y0)  # computation of SOLution 
 # sol = solve_ivp(fun=f, t_span=[t0, tf], y0=y0, atol=1e-8, rtol=1e-8)
 # sol = solve_ivp(fun=f, t_span=[t0, tf], y0=y0, t_eval=ts) 
-sol = RK45(fun=f, t0=t0, y0=y0, t_bound=tf, first_step=.02, atol=1e-8, rtol=1e-8)
+sol = RK45(fun=f, t0=t0, y0=y0, t_bound=tf, first_step=.02, max_step=.1, atol=1e-6, rtol=1e-6)
 
 t_values = []
 y_values = []
@@ -28,7 +28,6 @@ for i in range(100):
         break
 
 
-# pylab.plot(sol.t, sol.y[0], '.')
 pylab.plot(t_values, y_values, '.')
 pylab.xlabel('t'); pylab.ylabel('y(t)')
 pylab.show()
